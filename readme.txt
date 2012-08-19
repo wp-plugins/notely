@@ -9,7 +9,7 @@ Adds a new metabox into the posts and pages Admin sidebar for making notes.
 
 == Description ==
 
-Sometimes you might want to make some notes against a page or a post, this plugin simply allows that. Notes are only visible in the right sidebar when editing a page or post. see "Other Notes" if you also want to show notes on your theme.
+Sometimes you might want to make some notes against a page or a post, this plugin simply allows that. By default notes are only visible in the right sidebar when editing a page or post, but you can also show notes on the front end (see the readme file).
 
 == Installation ==
 
@@ -19,27 +19,31 @@ Install, activate, done.
 
 If you also want to have the notes to be displayed on your page or post in your theme, a little PHP will do the trick.
 
-This will show your notes on your notes only if there are any:
+<strong>This will show your notes on your notes only if there are any:</strong>
 
+<pre>
 echo get_post_meta($post->ID, 'notely', true);
+</pre>
 
+<strong>Add a condition to do something depending on if a note is present or not:</strong>
 
-Add a condition to do something depending on if a note is present or not:
-
+<pre>
 if (post_custom('notely')) { 
     echo get_post_meta($post->ID, 'notely', true);
   } else {
     echo "No notes here.";
 }
+</pre>
 
+<strong>Add some HTML if you need:</strong>
 
-Add some HTML if you need:
-
+<pre>
 if (post_custom('notely')) { 
-    echo "<p>" . get_post_meta($post->ID, 'notely', true) . "</p>";
+    echo "<strong>" . get_post_meta($post->ID, 'notely', true) . "</strong>";
   } else {
-    echo "<p>No notes here.</p>";
+    echo "<strong>No notes here.</strong>";
 }
+</pre>
 
 == Uninstall ==
 
