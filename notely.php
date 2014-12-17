@@ -2,9 +2,9 @@
 /*
 	Plugin Name: Notely
 	Plugin URI: http://www.thatwebguyblog.com
-	Description: Adds a new metabox into the posts and pages Admin sidebar for making notes
+	Description: Adds a new metabox into the Posts, Pages and Woo Commerce Products admin sidebar for making notes.
 	Author: Michael Ott
-	Version: 1.0
+	Version: 1.1
 */
 
 class twgb_Notely {
@@ -16,10 +16,12 @@ class twgb_Notely {
 
         add_action( 'add_meta_boxes', array( $this, 'notelypost_meta_box' ) );
 		add_action( 'add_meta_boxes', array( $this, 'notelypage_meta_box' ) );
+		add_action( 'add_meta_boxes', array( $this, 'notelywoo_meta_box' ) );
+		add_action( 'add_meta_boxes', array( $this, 'notelycategory_meta_box' ) );
         add_action( 'save_post', array($this, 'save_data') );
     }
 
-	// Add the meta box to the POSTS sidebar
+	// Add the meta box to POSTS
     function notelypost_meta_box(){
         add_meta_box(
              'notes'
@@ -31,7 +33,7 @@ class twgb_Notely {
         );
     }
 	
-	// Add the meta box to the PAGES sidebar
+	// Add the meta box to PAGES
     function notelypage_meta_box(){
         add_meta_box(
              'notes'
@@ -42,6 +44,20 @@ class twgb_Notely {
             ,'default'
         );
     }
+	
+	// Add the meta box to Woo Commerce Product
+    function notelywoo_meta_box(){
+		if ( class_exists( 'WooCommerce' ) ) {
+			add_meta_box(
+				 'notes'
+				,'Product Notes'
+				,array( &$this, 'meta_box_content' )
+				,'product'
+				,'side'
+				,'default'
+			);
+		}
+	}
 
     function meta_box_content(){
         global $post;

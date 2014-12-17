@@ -2,7 +2,7 @@
 Contributors: mikeyott
 Tags: notes, side notes, sidenotes, memo, post notes, page notes
 Requires at least: 2.9.2
-Tested up to: 3.4.1
+Tested up to: 4.1
 Stable tag: trunk
 
 Adds a new metabox into the posts and pages Admin sidebar for making notes.
@@ -55,6 +55,10 @@ Deactivate the plugin, delete if desired. Deactivating does not delete existing 
 <p><a href="http://www.thatwebguyblog.com/post/notely-for-wordpress-lets-you-make-notes-against-pages-and-posts/">That Web Guy</a></p>
 
 == Changelog ==
+
+= 1.1 =
+
+* Notes on Woo Commerce products
 
 = 1.0 =
 
