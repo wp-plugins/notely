@@ -56,6 +56,10 @@ Deactivate the plugin, delete if desired. Deactivating does not delete existing 
 
 == Changelog ==
 
+= 1.2 =
+
+* Removed invalid (incomplete) callback function that was throwing an error
+
 = 1.1 =
 
 * Notes on Woo Commerce products

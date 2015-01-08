@@ -4,7 +4,7 @@
 	Plugin URI: http://www.thatwebguyblog.com
 	Description: Adds a new metabox into the Posts, Pages and Woo Commerce Products admin sidebar for making notes.
 	Author: Michael Ott
-	Version: 1.1
+	Version: 1.2
 */
 
 class twgb_Notely {
@@ -17,7 +17,6 @@ class twgb_Notely {
         add_action( 'add_meta_boxes', array( $this, 'notelypost_meta_box' ) );
 		add_action( 'add_meta_boxes', array( $this, 'notelypage_meta_box' ) );
 		add_action( 'add_meta_boxes', array( $this, 'notelywoo_meta_box' ) );
-		add_action( 'add_meta_boxes', array( $this, 'notelycategory_meta_box' ) );
         add_action( 'save_post', array($this, 'save_data') );
     }
 
