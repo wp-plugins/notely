@@ -2,14 +2,14 @@
 Contributors: mikeyott
 Tags: notes, side notes, sidenotes, memo, post notes, page notes
 Requires at least: 2.9.2
-Tested up to: 4.1
+Tested up to: 4.2.2
 Stable tag: trunk
 
-Adds a new metabox into the posts and pages Admin sidebar for making notes.
+Adds a new metabox into the admin sidebar on Posts, Pages and WooCommerce Products (if activated) for making notes.
 
 == Description ==
 
-Sometimes you might want to make some notes against a page or a post, this plugin simply allows that. By default notes are only visible in the right sidebar when editing a page or post, but you can also show notes on the front end (see the readme file).
+For when you might want to make notes on a post, page or product in Wordpress admin, this plug-in simply allows that.
 
 == Installation ==
 
@@ -17,44 +17,33 @@ Install, activate, done.
 
 == Other Notes ==
 
-If you also want to have the notes to be displayed on your page or post in your theme, a little PHP will do the trick.
+If you also want to have the notes to be displayed on the front-end, a little PHP will do the trick.
 
-<strong>This will show your notes on your notes only if there are any:</strong>
-
-<pre>
-echo get_post_meta($post->ID, 'notely', true);
-</pre>
-
-<strong>Add a condition to do something depending on if a note is present or not:</strong>
+<strong>This will show the notes for the page/post/product you are currently viewing:</strong>
 
 <pre>
-if (post_custom('notely')) { 
+if (post_custom('notely')) {
     echo get_post_meta($post->ID, 'notely', true);
   } else {
     echo "No notes here.";
 }
 </pre>
 
-<strong>Add some HTML if you need:</strong>
-
-<pre>
-if (post_custom('notely')) { 
-    echo "<strong>" . get_post_meta($post->ID, 'notely', true) . "</strong>";
-  } else {
-    echo "<strong>No notes here.</strong>";
-}
-</pre>
-
 == Uninstall ==
 
-Deactivate the plugin, delete if desired. Deactivating does not delete existing notes, so if you change your mind about it later all your notes will be restored.
-
-== Official Web Site (and support) ==
+Deactivate the plugin, delete if desired. Deactivating does not delete existing notes from the database, so if you reactivate the plug-in later all your notes will be restored.
 
 <h3>Official website and support</h3>
-<p><a href="http://www.thatwebguyblog.com/post/notely-for-wordpress-lets-you-make-notes-against-pages-and-posts/">That Web Guy</a></p>
+<p><a href="https://wordpress.org/support/plugin/notely">Notely at Wordpress</a></p>
 
 == Changelog ==
+
+= 1.3 =
+
+* Notes now show in admin columns.
+* Option to make notes in admin columns always visible or show only when button is toggled.
+* Option to change the note icon colour displayed in admin columns.
+
 
 = 1.2 =
 
